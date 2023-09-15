@@ -138,6 +138,7 @@
             this.listBoxUsers.Name = "listBoxUsers";
             this.listBoxUsers.Size = new System.Drawing.Size(263, 212);
             this.listBoxUsers.TabIndex = 11;
+            this.listBoxUsers.SelectedIndexChanged += new System.EventHandler(this.BtnShowUserBooks);
             // 
             // BtnShowUsers
             // 
@@ -185,6 +186,7 @@
             this.BtnExitApp.Size = new System.Drawing.Size(25, 20);
             this.BtnExitApp.TabIndex = 0;
             this.BtnExitApp.UseVisualStyleBackColor = false;
+            this.BtnExitApp.Click += new System.EventHandler(this.BtnExitApp_Click);
             // 
             // pictureBox1
             // 
@@ -194,6 +196,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(570, 296);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             // 
             // panel2
             // 
