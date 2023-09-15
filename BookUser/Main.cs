@@ -1,8 +1,6 @@
-﻿using BookUser.Properties;
+﻿using MySql.Data.MySqlClient;
 using System;
-using System.Data.SqlClient;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace BookUser
 {
@@ -53,15 +51,15 @@ namespace BookUser
                 mysql_connection.Open();
 
                 var userName = textBoxNewUserName.Text;
-                
+
                 if (String.IsNullOrEmpty(userName))
                 {
                     return;
                 }
-                
+
                 MySqlCommand mysql_query = mysql_connection.CreateCommand();
                 mysql_query.CommandText = $"INSERT Users (name) VALUES ('{userName}');";
-               
+
                 mysql_query.ExecuteNonQuery();
 
                 textBoxNewUserName.Clear();
@@ -102,7 +100,7 @@ namespace BookUser
         }
 
         private void BtnAddBook(object sender, EventArgs e)
-        { 
+        {
             var selected = listBoxUsers.SelectedItem;
             if (selected == null || String.IsNullOrWhiteSpace(textBoxNewBookName.Text))
             {
@@ -292,13 +290,13 @@ namespace BookUser
             try
             {
                 mysql_connection.Open();
-                
+
                 var temp = (User)selected;
                 var selectedUser = temp.Id;
                 var selectedBook = listBoxBooks.SelectedItem.ToString();
 
                 MySqlCommand mysql_query = mysql_connection.CreateCommand();
-                mysql_query.CommandText = $"DELETE FROM Books WHERE userId = {selectedUser} AND Title = '{selectedBook}'"; 
+                mysql_query.CommandText = $"DELETE FROM Books WHERE userId = {selectedUser} AND Title = '{selectedBook}'";
 
                 mysql_query.ExecuteNonQuery();
                 textBoxNewUserName.Clear();
