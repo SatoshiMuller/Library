@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace BookUser
@@ -31,7 +32,7 @@ namespace BookUser
             string user = "sql11646769"; // Name User
             string password = "zrLYPQSwZV"; // Password User
 
-            string Connect = "Database=" + database + ";Datasource=" + host + ";User=" + user + ";Password=" + password;
+            string Connect = "Database=" + database + ";Datasource=" + host + ";User=" + user + ";Password=" + password + ";CharSet = utf8"; 
 
             mysql_connection = new MySqlConnection(Connect);
 
@@ -61,7 +62,7 @@ namespace BookUser
                 mysql_query.CommandText = $"INSERT Users (name) VALUES ('{userName}');";
 
                 mysql_query.ExecuteNonQuery();
-
+                
                 textBoxNewUserName.Clear();
 
                 #region MsSql Server
